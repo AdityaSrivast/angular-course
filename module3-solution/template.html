@@ -1,0 +1,11 @@
+<div class="container" ng-if="founded.length > 0">
+	<li class="row" style="display:flex; align-items: center;margin-bottom:10px;" ng-repeat="item in founded">
+		<span class="col-1 col-md-1 col-sm-1">{{ item.short_name }}</span>
+		<span class="col-2 col-md-2 col-sm-2">{{ item.name }}</span>
+		<span class="col-6 col-md-7 col-sm-7">{{ item.description }}</span>
+		<span class="col-3 col-md-2 col-sm-2">
+			<button class="btn btn-danger" ng-click="remove({myIndex:$index });">Don't want this one!</button>
+		</span>
+	</li>
+</div>
+<div ng-if="(!founded || founded.length < 1) && narrowCalled">Nothing Found</div>

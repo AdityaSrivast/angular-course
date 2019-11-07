@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <title>Narrow Down Your Menu Choice</title>
@@ -8,23 +8,22 @@
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
   </head>
-<body ng-app="NarrowItDownApp">
-   <div class="container" ng-controller="NarrowItDownController as menu">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
+  <body ng-app="NarrowItDownApp">
+     <div class="container" ng-controller="NarrowItDownController as ctrl">
+      <h1>Narrow Down Your Chinese Menu Choice</h1>
+      <div class="form-group">
+        <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.search">
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" ng-click="ctrl.narrow();">Narrow It Down For Me!</button>
+      </div>
 
-    <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="menu.shortName">
+      <!-- found-items should be implemented as a component -->
+      <found-items
+      class="items col-md-12"
+      found-them="ctrl.found"
+      narrow-called="ctrl.narrowCalled"
+      on-remove="ctrl.remove(myIndex)"></found-items>
     </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary"
-       ng-click="">
-       Narrow It Down For Me!
-     </button>
-    </div>
-
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="menu.found" on-remove="menu.removeMenuItem(index)" on-empty="menu.message"></found-items>
-  </div>
-
-</body>
+  </body>
 </html>

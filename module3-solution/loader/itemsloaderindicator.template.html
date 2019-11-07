@@ -1,1 +1,6 @@
-<div class="loader"></div>
+<div class="loader">
+	<li ng-repeat="item in founded">
+	{{ item.name }}
+	<button ng-click="remove({myIndex: '{{$index}}'});">Don't want this one!</button>
+	</li>
+</div>
